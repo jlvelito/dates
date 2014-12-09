@@ -1,0 +1,225 @@
+/**
+ * fullPage 1.6.7
+ * https://github.com/alvarotrigo/fullPage.js
+ * MIT licensed
+ *
+ * Copyright (C) 2013 alvarotrigo.com - A project by Alvaro Trigo
+ */
+html, body {
+    margin: 0;
+    padding: 0;
+	overflow:hidden;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+#superContainer {
+    height: 100%;
+    position: relative;
+	
+	/* Touch detection for Windows 8 */
+	-ms-touch-action: none; 
+}
+.section {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.slide {
+    float: left;
+}
+.slide, .slidesContainer {
+    height: 100%;
+    display: block;
+}
+.slides {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.section.table, .slide.table {
+    display: table;
+    width: 100%;
+}
+.tableCell {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+}
+.slidesContainer {
+    float: left;
+    position: relative;
+}
+.controlArrow {
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    width: 6.4rem;
+    height: 6.4rem;
+    border: none;
+    margin-top: -3.2rem;
+}
+.controlArrow.prev {
+    left: 15px;
+    background: url(../images/prev.png) no-repeat center center;
+    background-size: cover;
+}
+.controlArrow.next {
+    right: 15px;
+    background: url(../images/next.png) no-repeat center center;
+    background-size: cover;
+}
+.scrollable {
+    overflow: scroll;
+}
+.easing {
+    -webkit-transition: all 0.7s ease-out;
+    -moz-transition: all 0.7s ease-out;
+    -o-transition: all 0.7s ease-out;
+    transition: all 0.7s ease-out;
+}
+#fullPage-nav {
+    position: fixed;
+    z-index: 100;
+    margin-top: -32px;
+    top: 50%;
+    opacity: 1;
+}
+#fullPage-nav.right {
+    right: 17px;
+}
+#fullPage-nav.left {
+    left: 17px;
+}
+.fullPage-slidesNav {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    opacity: 1;
+}
+.fullPage-slidesNav.bottom {
+    bottom: 17px;
+}
+.fullPage-slidesNav.top {
+    top: 17px;
+}
+#fullPage-nav ul,
+.fullPage-slidesNav ul {
+  margin: 0;
+  padding: 0;
+}
+#fullPage-nav li,
+.fullPage-slidesNav li {
+    display: block;
+    width: 14px;
+    height: 13px;
+    margin: 7px;
+    position:relative;
+}
+.fullPage-slidesNav li {
+    display: inline-block;
+}
+#fullPage-nav li a,
+.fullPage-slidesNav li a {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+#fullPage-nav li .active span,
+.fullPage-slidesNav .active span {
+    background: #f8f8f8;
+    -moz-transition-property: all;
+ -moz-transition-duration: 0.3s;
+ -webkit-transition-property: all;
+ -webkit-transition-duration: 0.3s;
+ -o-transition-property: all;
+ -o-transition-duration: 0.3s;
+}
+
+
+
+
+#fullPage-nav span,
+.fullPage-slidesNav span {
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #fff;
+    background: rgba(0, 0, 0, 0);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    -moz-transition-property: all;
+ -moz-transition-duration: 0.3s;
+ -webkit-transition-property: all;
+ -webkit-transition-duration: 0.3s;
+ -o-transition-property: all;
+ -o-transition-duration: 0.3s;
+}
+
+#fullPage-nav.blan li .active span,
+.fullPage-slidesNav.blan .active span {
+    background: #6b6b6b;
+    -moz-transition-property: all;
+ -moz-transition-duration: 0.3s;
+ -webkit-transition-property: all;
+ -webkit-transition-duration: 0.3s;
+ -o-transition-property: all;
+ -o-transition-duration: 0.3s;
+}
+
+
+
+
+#fullPage-nav.blan span,
+.fullPage-slidesNav.blan span {
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #6b6b6b;
+    background: rgba(0, 0, 0, 0);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    -moz-transition-property: all;
+ -moz-transition-duration: 0.3s;
+ -webkit-transition-property: all;
+ -webkit-transition-duration: 0.3s;
+ -o-transition-property: all;
+ -o-transition-duration: 0.3s;
+}
+
+
+.fullPage-tooltip {
+    position: absolute;
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Futura Bk BT';
+    top: -2px;
+    background: rgba(0,0,0,0.4);
+    padding: 2px 8px;
+}
+.fullPage-tooltip.right {
+    right: 20px;
+}
+.fullPage-tooltip.left {
+    left: 20px;
+}
